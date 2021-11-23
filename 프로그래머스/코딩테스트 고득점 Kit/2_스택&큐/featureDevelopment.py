@@ -19,29 +19,19 @@ def solution(progresses, speeds):
                 
         if exitFlag == True:
             break;
-        
-    # print('completeDayList : ', completeDayList)
     
     currentVal = completeDayList[0]
     currentIdx = 0
     answer.append(1)
-    
-    # print('len(completeDayList) : ', len(completeDayList))
 
     for i in (range(len(completeDayList) -1 )):
-        # print('currentVal : ', currentVal)
         if completeDayList[i+1] <= currentVal:  # 다음 progress가 이미 끝나있다면
             answer[currentIdx] = answer[currentIdx] + 1
         else:                                   # 다음 progress가 끝나있지 않다면
             currentIdx = currentIdx + 1
-            # print('currentIdx : ', currentIdx)
-            # print('completeDayList[currentIdx] : ', completeDayList[i+1])
-            if currentVal >= completeDayList[i+1]:
-                pass
-            else:
-                currentVal = completeDayList[i+1]  
+            currentVal = completeDayList[i+1]  
             answer.append(1)
-            
+    
     return answer
 
 
