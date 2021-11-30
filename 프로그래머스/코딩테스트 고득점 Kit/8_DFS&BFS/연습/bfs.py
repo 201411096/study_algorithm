@@ -14,6 +14,7 @@ graph = {
     'M': ['H']
 }
 
+
 def bfs(graph, start_node):
     visited = list()
     need_visited = list()

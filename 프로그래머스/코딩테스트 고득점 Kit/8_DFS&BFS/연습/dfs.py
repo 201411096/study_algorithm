@@ -16,7 +16,9 @@ graph = {
 
 
 def dfs(graph, start_node):
-    visited, need_visited = list(), list()
+    visited = list()
+    need_visited = list()
+    
     need_visited.append(start_node)
     
     while need_visited:
@@ -27,4 +29,4 @@ def dfs(graph, start_node):
     
     return visited
 
-print(dfs(graph, 'A'))
+print(dfs(graph, 'A'))  # ['A', 'B', 'H', 'M', 'J', 'K', 'L', 'I', 'C', 'D', 'G', 'E', 'F']
