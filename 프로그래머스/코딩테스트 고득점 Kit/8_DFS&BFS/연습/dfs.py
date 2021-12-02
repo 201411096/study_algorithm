@@ -38,6 +38,7 @@ def dfs(graph, start_node):
         if node not in visited:
             visited.append(node)
             need_visited.extend(graph[node])
+            # need_visited.extend(sorted(graph[node], reverse=True) )   # 반대로 정렬해서 스택에 담을 경우, 아래 재귀로 구현한 함수와 결과가 같게 나옴
     
     return visited
 
