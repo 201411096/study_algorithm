@@ -53,8 +53,6 @@ def solution(n, lost, reserve):
             reserve.remove(tempArr[1])
             answer = answer + 1
             continue
-    
-    print('reserve : ', reserve)
         
     return answer
 
