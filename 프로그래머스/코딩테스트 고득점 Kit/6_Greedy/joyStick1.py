@@ -29,8 +29,6 @@ name	return
 "JAN"	23
 
 """
-
-# 빠른 경로 찾는 부분부터 이해를 하지 못함
 def solution(name):
 	# 조이스틱 조작 횟수
     answer = 0
