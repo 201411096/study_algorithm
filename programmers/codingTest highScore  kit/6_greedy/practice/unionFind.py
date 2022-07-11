@@ -33,11 +33,16 @@ if __name__ == "__main__":
 
     parents = makeSet(n)
 
-    unionRoot(parents, 1, 2) # [ [1, 2] ]
-    unionRoot(parents, 2, 3) # [ [1, 2, 3] ]
-    unionRoot(parents, 4, 3) # [ [1, 2, 3, 4] ]
-    unionRoot(parents, 5, 6) # [ [1, 2, 3, 4], [5, 6] ]
-    unionRoot(parents, 7, 8) # [ [1, 2, 3, 4], [5, 6], [7, 8] ]
+    unionRoot(parents, 1, 2)        # [ [1, 2] ]
+    print('parents : ', parents)    # parents :  [0, 1, 1, 3, 4, 5, 6, 7, 8]
+    unionRoot(parents, 2, 3)        # [ [1, 2, 3] ]
+    print('parents : ', parents)    # parents :  [0, 1, 1, 1, 4, 5, 6, 7, 8]
+    unionRoot(parents, 4, 3)        # [ [1, 2, 3, 4] ]
+    print('parents : ', parents)    # parents :  [0, 1, 1, 1, 1, 5, 6, 7, 8]
+    unionRoot(parents, 5, 6)        # [ [1, 2, 3, 4], [5, 6] ]
+    print('parents : ', parents)    # parents :  [0, 1, 1, 1, 1, 5, 5, 7, 8]
+    unionRoot(parents, 7, 8)        # [ [1, 2, 3, 4], [5, 6], [7, 8] ]
+    print('parents : ', parents)    # parents :  [0, 1, 1, 1, 1, 5, 5, 7, 7]
 
     print('='*25)
     print('4,1 => same set? :', compareRoot(parents, 4, 1))    # True
@@ -48,10 +53,15 @@ if __name__ == "__main__":
     print('7,8 => same set? :', compareRoot(parents, 7, 8))    # True
 
     unionRoot(parents, 5, 4)
+    print('parents : ', parents)    # parents :  [0, 1, 1, 1, 1, 1, 5, 7, 7]
     unionRoot(parents, 6, 7)
+    print('parents : ', parents)    # parents :  [0, 1, 1, 1, 1, 1, 5, 1, 7]
     print('='*25)
 
     print('4,5 => same set? :', compareRoot(parents, 4, 5))    # True
     print('5,7 => same set? :', compareRoot(parents, 5, 7))    # True
     print('4,7 => same set? :', compareRoot(parents, 4, 7))    # True
+    print('5,6 => same set? :', compareRoot(parents, 5, 6))    # True
+    print('6,7 => same set? :', compareRoot(parents, 6, 7))    # True
+    print('7,8 => same set? :', compareRoot(parents, 7, 8))    # True
     print('='*25)
