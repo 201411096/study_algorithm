@@ -16,8 +16,6 @@ def makeSet(nodeList):
     return parentDict, rankDict
     
 def findRoot(parentDict, node):
-    # print('node : ', node)
-    # print('parentDict[node] : ', parentDict[node])
     if parentDict[node] != node :
         parentDict[node] = findRoot(parentDict, parentDict[node])   # path compression
 
