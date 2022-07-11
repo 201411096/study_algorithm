@@ -1,6 +1,9 @@
 # union-find    : 합집합 찾기
 # disjoint-set  : 서로소 집합
 
+# union by rank     : x
+# path compression  : x
+
 def makeSet(n):
     return [i for i in range(n+1)]
 
