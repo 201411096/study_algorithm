@@ -13,7 +13,7 @@ def findRoot(parents, n):
     else:
         return findRoot(parents, parents[n])
 
-def unionRoot(parents, a, b):
+def unionSet(parents, a, b):
     rootA = findRoot(parents, a)
     rootB = findRoot(parents, b)
 
@@ -36,15 +36,15 @@ if __name__ == "__main__":
 
     parents = makeSet(n)
 
-    unionRoot(parents, 1, 2)        # [ [1, 2] ]
+    unionSet(parents, 1, 2)        # [ [1, 2] ]
     print('parents : ', parents)    # parents :  [0, 1, 1, 3, 4, 5, 6, 7, 8]
-    unionRoot(parents, 2, 3)        # [ [1, 2, 3] ]
+    unionSet(parents, 2, 3)        # [ [1, 2, 3] ]
     print('parents : ', parents)    # parents :  [0, 1, 1, 1, 4, 5, 6, 7, 8]
-    unionRoot(parents, 4, 3)        # [ [1, 2, 3, 4] ]
+    unionSet(parents, 4, 3)        # [ [1, 2, 3, 4] ]
     print('parents : ', parents)    # parents :  [0, 1, 1, 1, 1, 5, 6, 7, 8]
-    unionRoot(parents, 5, 6)        # [ [1, 2, 3, 4], [5, 6] ]
+    unionSet(parents, 5, 6)        # [ [1, 2, 3, 4], [5, 6] ]
     print('parents : ', parents)    # parents :  [0, 1, 1, 1, 1, 5, 5, 7, 8]
-    unionRoot(parents, 7, 8)        # [ [1, 2, 3, 4], [5, 6], [7, 8] ]
+    unionSet(parents, 7, 8)        # [ [1, 2, 3, 4], [5, 6], [7, 8] ]
     print('parents : ', parents)    # parents :  [0, 1, 1, 1, 1, 5, 5, 7, 7]
 
     print('='*25)
@@ -55,9 +55,9 @@ if __name__ == "__main__":
     print('4,7 => same set? :', compareRoot(parents, 4, 7))    # False
     print('7,8 => same set? :', compareRoot(parents, 7, 8))    # True
 
-    unionRoot(parents, 5, 4)
+    unionSet(parents, 5, 4)
     print('parents : ', parents)    # parents :  [0, 1, 1, 1, 1, 1, 5, 7, 7]
-    unionRoot(parents, 6, 7)
+    unionSet(parents, 6, 7)
     print('parents : ', parents)    # parents :  [0, 1, 1, 1, 1, 1, 5, 1, 7]
     print('='*25)
 

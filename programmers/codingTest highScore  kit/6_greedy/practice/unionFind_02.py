@@ -21,7 +21,7 @@ def findRoot(parentDict, node):
 
     return parentDict[node]
 
-def unionRoot(parentDict, rankDict, a, b):
+def unionSet(parentDict, rankDict, a, b):
     rootA = findRoot(parentDict, a)
     rootB = findRoot(parentDict, b)
 
@@ -47,15 +47,15 @@ if __name__ == "__main__":
 
     parentDict, rankDict = makeSet(nodeList)
 
-    unionRoot(parentDict, rankDict, 1, 2)           # [ [1, 2] ]
+    unionSet(parentDict, rankDict, 1, 2)           # [ [1, 2] ]
     print('parentDict : ', parentDict)              # parentDict :  {1: 1, 2: 1, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8}
-    unionRoot(parentDict, rankDict, 2, 3)           # [ [1, 2, 3] ]
+    unionSet(parentDict, rankDict, 2, 3)           # [ [1, 2, 3] ]
     print('parentDict : ', parentDict)              # parentDict :  {1: 1, 2: 1, 3: 1, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8}
-    unionRoot(parentDict, rankDict, 4, 3)           # [ [1, 2, 3, 4] ]
+    unionSet(parentDict, rankDict, 4, 3)           # [ [1, 2, 3, 4] ]
     print('parentDict : ', parentDict)              # parentDict :  {1: 1, 2: 1, 3: 1, 4: 1, 5: 5, 6: 6, 7: 7, 8: 8}
-    unionRoot(parentDict, rankDict, 5, 6)           # [ [1, 2, 3, 4], [5, 6] ]
+    unionSet(parentDict, rankDict, 5, 6)           # [ [1, 2, 3, 4], [5, 6] ]
     print('parentDict : ', parentDict)              # parentDict :  {1: 1, 2: 1, 3: 1, 4: 1, 5: 5, 6: 5, 7: 7, 8: 8}
-    unionRoot(parentDict, rankDict, 7, 8)           # [ [1, 2, 3, 4], [5, 6], [7, 8] ]
+    unionSet(parentDict, rankDict, 7, 8)           # [ [1, 2, 3, 4], [5, 6], [7, 8] ]
     print('parentDict : ', parentDict)              # parentDict :  {1: 1, 2: 1, 3: 1, 4: 1, 5: 5, 6: 5, 7: 7, 8: 7}
 
     print('='*25)
@@ -69,10 +69,10 @@ if __name__ == "__main__":
     print('parentDict : ', parentDict)              # parentDict :  {1: 1, 2: 1, 3: 1, 4: 1, 5: 5, 6: 5, 7: 7, 8: 7}
     print('rankDict : ', rankDict)                  # rankDict :  {1: 1, 2: 0, 3: 0, 4: 0, 5: 1, 6: 0, 7: 1, 8: 0}
 
-    unionRoot(parentDict, rankDict, 5, 4)
+    unionSet(parentDict, rankDict, 5, 4)
     print('parentDict : ', parentDict)              # parentDict :  {1: 5, 2: 1, 3: 1, 4: 1, 5: 5, 6: 5, 7: 7, 8: 7}
     print('rankDict : ', rankDict)                  # rankDict :  {1: 1, 2: 0, 3: 0, 4: 0, 5: 2, 6: 0, 7: 1, 8: 0}
-    unionRoot(parentDict, rankDict, 6, 7)
+    unionSet(parentDict, rankDict, 6, 7)
     print('parentDict : ', parentDict)              # parentDict :  {1: 5, 2: 1, 3: 1, 4: 1, 5: 5, 6: 5, 7: 5, 8: 7}
     print('rankDict : ', rankDict)                  # rankDict :  {1: 1, 2: 0, 3: 0, 4: 0, 5: 2, 6: 0, 7: 1, 8: 0}
     print('='*25)
