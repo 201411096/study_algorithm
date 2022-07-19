@@ -1,5 +1,4 @@
 import heapq
-from turtle import distance
 
 def dijkstra(graph, start_node):
     distanceDict = {node : float('inf') for node in graph}
@@ -20,7 +19,7 @@ def dijkstra(graph, start_node):
             if distance < distanceDict[adjacent_node]:
                 distanceDict[adjacent_node] = distance
                 heapq.heappush(heap, [distance, adjacent_node])
-                
+
     return distanceDict
 
 mygraph = {
