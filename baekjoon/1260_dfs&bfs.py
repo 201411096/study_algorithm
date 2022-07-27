@@ -39,6 +39,11 @@ DFS와 BFS
 1000 999
 1000 999
 """
+
+# 문제가 막히던 부분
+# 1. 숫자를 string으로 받아서 정렬을 하려고 했음
+# 2. 문제를 제대로 읽지 않아, node가 초기화되는 방식을 착각함(순서대로 초기화되는지 몰랐음) -> bfs, dfs 함수 실행 시 keyError 발생
+
 def main():
     N, M, start_node = map(int, input().split()) 
     graph = {}
