@@ -28,8 +28,39 @@ maps	answer
 [[1,0,1,1,1],[1,0,1,0,1],[1,0,1,1,1],[1,1,1,0,0],[0,0,0,0,1]]	-1
 
 """
+from collections import deque
+
 def solution(maps):
+    print('='*150)
+    def bfs(maps, visited, distance):
+        q = deque()
+        n = len(maps)
+        m = len(maps[0])
+
+        q.append((0, 0, 1)) # x, y, 거리
+
+        while q:
+            x, y, dist = q.popleft()
+            # print('x : {} y : {} dist : {}'.format(x, y, dist))
+            if x<0 or x>=n or y<0 or y>=m:
+                continue
+            if visited[x][y] == 0 and maps[x][y] == 1:
+                visited[x][y] = 1
+                distance[x][y] = dist
+                q.append((x-1, y, dist+1))
+                q.append((x, y-1, dist+1))
+                q.append((x+1, y, dist+1))
+                q.append((x, y+1, dist+1))
+        
+        if visited[n-1][m-1] == 0:
+            return -1
+        else:
+            return distance[n-1][m-1]
+    
     answer = 0
+    visited = [[0 for j in range(len(maps[0]))] for i in range(len(maps)) ]
+    distance = [[j+i for j in range(len(maps[0]))] for i in range(len(maps)) ]
+    answer = bfs(maps, visited, distance)
 
     return answer
 
