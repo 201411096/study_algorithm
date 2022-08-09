@@ -7,6 +7,8 @@ myedges = [
     (11, 'F', 'G')
 ]
 
+# 정점 집합과 연결되어 있는 간선들 중 최소 비용 간선을 찾아내는 알고리즘
+
 from collections import defaultdict
 import heapq
 
