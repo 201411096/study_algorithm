@@ -19,9 +19,32 @@ n	computers	return
 3	[[1, 1, 0], [1, 1, 1], [0, 1, 1]]	1
 
 """
-
+# 오랜 기간 푼 문제
 def solution(n, computers):
+    def dfs(graph, visited, node):
+        visited.append(node)
+
+        for n in graph[node]:
+            if n not in visited:
+                dfs(graph, visited, n)
+        return
+
     answer = 0
+    visited = []
+    graph = {}
+
+    # graph 생성
+    for i in range(n):
+        graph[i] = []
+        for j in range(n):
+            if computers[i][j] == 1 and i != j :
+                graph[i].append(j)
+
+    # node별로 한번씩 탐색
+    for i in range(n):
+        if i not in visited:
+            dfs(graph, visited, i)
+            answer += 1
 
     return answer
 
@@ -34,3 +57,4 @@ print(solution(n, computers)) # 2
 n = 3
 computers = [[1, 1, 0], [1, 1, 1], [0, 1, 1]]
 print(solution(n, computers)) # 1
+# ====================================================================================================
