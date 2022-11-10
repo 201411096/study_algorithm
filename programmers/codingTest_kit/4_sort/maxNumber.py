@@ -27,7 +27,10 @@ def solution(numbers):
         return -(int(n1+n2) - int(n2+n1))
     
     for i, number in enumerate(numbers):
-        numbers[i] = str(number)
+        # 비교할 때 string 상태에서 합쳐야 함
+        # 0+2 -> 02 (o)
+        # 0+2 -> 2 (x)
+        numbers[i] = str(number) 
 
     answer = "".join([str(i) for i in sorted(numbers, key=functools.cmp_to_key(myCmp))])
 
