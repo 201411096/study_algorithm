@@ -1,3 +1,5 @@
+# Longest Common Subsequence(최장 공통 부분수열)
+
 # Dynamic Programming implementation of LCS problem
 def lcs(X, Y):
     m = len(X)
